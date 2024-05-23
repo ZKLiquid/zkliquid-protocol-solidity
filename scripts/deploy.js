@@ -1,13 +1,19 @@
 const hre = require("hardhat");
+const { ethers } = require("hardhat");
 
 async function main() {
-  const NFT = await hre.ethers.getContractFactory("NFT");
-  const nft = await NFT.deploy();
+  const Owner = "0x751f24E6FF4A12466a5249Fe380a7cC412dE5164";
+  const supportedToken = "0xAd880DF1E803BcB5701d29E8a150F05c81F89B9E";
 
-  await nft.waitForDeployment();
+  // const TOKEN = await ethers.getContractFactory("Token");
 
-  const deployedAddress = nft.target; // Store the deployed contract address
-  console.log(`${deployedAddress}`);
+  const AUTOPOOL = await ethers.getContractFactory("AutoPool");
+
+  const Pool = await AUTOPOOL.deploy(Owner, 60, supportedToken);
+
+  await Pool.waitForDeployment();
+
+  console.log(` Your contract address: ${Pool.target}`);
 }
 
 main().catch((error) => {

@@ -24,11 +24,11 @@ module.exports = {
     },
     bsc: {
       url: secrets.bscUrl,
-      accounts: [secrets.bscKey],
+      accounts: [secrets.key],
     },
   },
   etherscan: {
     //apiKey: "YJJJCUX1H4EGWT6D5URIF1QNGXSN9EDA14",
-    apiKey: "YJJJCUX1H4EGWT6D5URIF1QNGXSN9EDA14",
+    apiKey: "F22ID1GZ8Y445Z5NY1AN9P9F2UWGBZQ59Y",
   },
 };

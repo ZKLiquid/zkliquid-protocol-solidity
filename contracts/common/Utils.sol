@@ -19,6 +19,17 @@ contract Utils is ReentrancyGuard {
         return true;
     }
 
+    function _approveAsset( 
+        address tokenAddress, 
+        uint256 amount
+        ) internal returns (bool){
+        require(tokenAddress != address(0), "Token address should not be zero");
+        TransferHelper.safeApprove(tokenAddress, address(this), amount);
+        return true;
+
+    }
+
+
     function _sendAsset(
         address tokenAddress,
         address toAddress,

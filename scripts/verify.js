@@ -13,14 +13,14 @@ const network = hre.network.name;
 
 async function main() {
   const now = Math.round(Date.now() / 1000);
-  const Receiver = "0x53e9e213e0CeAe81154798d79c510331947D4E0d";
-  const TokenAddress = "0xE94A73848224907453e872D20078E0C4621BbA92";
-  const contractAddress = "0x83E0f93168fbdDbABFe35DE334bd050Bdcfa6957";
+  const Owner = "0x751f24E6FF4A12466a5249Fe380a7cC412dE5164";
+  const Receiver = "0x488C38F91624C9bbeb7bf9acc7812Af100F5aef6";
+  const contractAddress = "0x7115aE5487314Fec61baf561ACf1B797ca34C869";
 
   await hre.run("verify:verify", {
     address: contractAddress,
-    constructorArguments: [Receiver, TokenAddress],
-    contract: "contracts/Sale.sol:Chai",
+    constructorArguments: [Owner, Receiver],
+    contract: "contracts/Sale.sol:TokenSale",
   });
 }
 
