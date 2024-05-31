@@ -12,15 +12,17 @@ const { ethers } = require("hardhat");
 const network = hre.network.name;
 
 async function main() {
-  const now = Math.round(Date.now() / 1000);
-  const Owner = "0x751f24E6FF4A12466a5249Fe380a7cC412dE5164";
-  const Receiver = "0x488C38F91624C9bbeb7bf9acc7812Af100F5aef6";
-  const contractAddress = "0x7115aE5487314Fec61baf561ACf1B797ca34C869";
+  // for sepolia network
+  const contractAddress = "0x2B5474bCCCae8C9cce8D70Ed0e24B8D3797b2BAD";
+  const router = "0x0BF3dE8c5D3e8A2B34D2BEeB17ABfCeBaf363A59";
+  const linkToken = "0x779877A7B0D9E8603169DdbD7836e478b4624789";
+  const owner = "0x751f24E6FF4A12466a5249Fe380a7cC412dE5164";
+  const interval = 60;
 
   await hre.run("verify:verify", {
     address: contractAddress,
-    constructorArguments: [Owner, Receiver],
-    contract: "contracts/Sale.sol:TokenSale",
+    constructorArguments: [router, linkToken, owner, interval],
+    contract: "contracts/Pool.sol:ZKLiquidAutoPool",
   });
 }
 

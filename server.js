@@ -16,7 +16,9 @@ app.use(express.json());
 app.post("/rundeploy", (req, res) => {
   const deployCommand =
     // "npx hardhat run scripts/deploy-omega.js --network sepolia";
-    "npx hardhat run scripts/deploy-token.js --network sepolia";
+    "npx hardhat run scripts/deploy.js --network fuji";
+  ("npx hardhat run scripts/deploy-token.js --network amoy");
+  ("npx hardhat run scripts/deploy-faucet.js --network amoy");
 
   exec(deployCommand, (error, stdout, stderr) => {
     if (error) {
